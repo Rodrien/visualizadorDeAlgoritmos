@@ -31,6 +31,7 @@ void drawOne(SDL_Rect numeros[],int sel){
 */
 
 void draw(SDL_Rect numeros[],int sel){
+    SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer,255,255,255,255);
     SDL_Rect fondo;
     fondo.x = fondo.y = 0;
@@ -97,7 +98,7 @@ int main(){
             fps = frameCount;
             frameCount = 0;
         }
-        cout<<fps<<endl;
+        //cout<<fps<<endl;
         
         //sort brute force
         SDL_Rect menor;
@@ -106,8 +107,8 @@ int main(){
         //ordenamos por valor de altura
         if(!ordenado){
             for(int j = 0; j<100;j++){
-                update();
-                input();
+                //update();
+                //input();
                 //draw(numeros,indice);
                 //SDL_Delay(100);
                 menor = numeros[j];
@@ -127,6 +128,8 @@ int main(){
                     }
                     //-----------
                     draw(numeros,i);
+                    update();
+                    input();
                 }
                 if(j != indice){ //hago switch
                     int valor = numeros[j].h;

@@ -31,6 +31,7 @@ void drawOne(SDL_Rect numeros[],int sel){
 */
 
 void draw(SDL_Rect numeros[],int sel){
+    SDL_RenderClear(renderer);
     SDL_SetRenderDrawColor(renderer,255,255,255,255);
     SDL_Rect fondo;
     fondo.x = fondo.y = 0;
@@ -97,7 +98,7 @@ int main(){
             fps = frameCount;
             frameCount = 0;
         }
-        cout<<fps<<endl;
+        //cout<<fps<<endl;
         
         //insertion sort
         if(!ordenado){
@@ -117,6 +118,8 @@ int main(){
                     }
                     //-----------
                     draw(numeros,j);
+                    update();
+                    input();
                 }
                 numeros[j + 1].h = aux;
             }
